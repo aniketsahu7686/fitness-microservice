@@ -1,0 +1,59 @@
+This is a microservices-based architecture designed to handle user authentication, activity tracking, and AI-powered processing. It uses multiple components that work together to provide scalability, security, and advanced features.
+
+Step-by-Step Explanation
+1. Clients and Entry Point
+
+Users access the system through laptops or mobile devices.
+All requests first go through an API Gateway.
+
+Think of this as the “front door” that controls and routes traffic to the right services.
+
+
+
+
+2. Authentication
+
+Before accessing any service, users are authenticated by Keycloak (Auth Server).
+This ensures secure login and token-based access control.
+
+
+3. Core Application Components
+Inside the main box, we have the core microservices:
+
+USER Service
+
+Stores user details in a MySQL database.
+
+
+ACTIVITY Service
+
+Tracks user activities and stores them in MongoDB.
+Sends activity data to a Queue for asynchronous processing.
+
+
+AI Service
+
+Picks up data from the Queue.
+Processes it using AI logic and stores results in another MongoDB.
+Connects to Google’s Gemini Server for advanced AI capabilities.
+
+
+
+
+4. Supporting Infrastructure
+
+RabbitMQ: Handles message queues for reliable communication.
+Config Server: Centralized configuration for all microservices.
+Eureka Server: Service discovery so microservices can find each other dynamically.
+
+
+How It Works Together
+
+A user performs an action → API Gateway routes it → Auth Server validates → Activity is recorded → Sent to Queue → AI Service processes → Results stored and optionally enhanced by Google Gemini.
+
+
+Why This Design?
+Scalability: Each service can scale independently.
+Security: Authentication and token validation via Keycloak.
+Resilience: Queue ensures tasks are processed even if AI Service is busy.
+Extensibility: Easy to add more services or integrate external AI.

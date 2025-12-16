@@ -1,3 +1,7 @@
+### Application local config (DO NOT COMMIT SECRETS) ###
+application.yml
+application.yaml
+
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar

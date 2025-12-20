@@ -1,4 +1,4 @@
-package main.java.com.fitness.activityservice.model;
+package com.fitness.activityservice.model;
 
 public enum ActivityType {
     RUNNING,

@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// This class tells Spring Boot how to talk to RabbitMQ:
+// create a queue, create an exchange, connect them, and send JSON messages.
+
+
 @Configuration
 public class RabbitMqConfig {
 
